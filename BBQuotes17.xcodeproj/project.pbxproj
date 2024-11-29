@@ -18,7 +18,7 @@
 		F72E71F82CF729F800F329F3 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E71F72CF729F800F329F3 /* Character.swift */; };
 		F72E71FA2CF72AD700F329F3 /* Death.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E71F92CF72AD700F329F3 /* Death.swift */; };
 		F72E71FC2CF7324D00F329F3 /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E71FB2CF7324D00F329F3 /* FetchService.swift */; };
-		F72E71FE2CF73BD200F329F3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E71FD2CF73BD200F329F3 /* ViewModel.swift */; };
+		F7F66D7F2CF9BEE600E15E94 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F66D7E2CF9BEE600E15E94 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		F72E71F72CF729F800F329F3 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		F72E71F92CF72AD700F329F3 /* Death.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Death.swift; sourceTree = "<group>"; };
 		F72E71FB2CF7324D00F329F3 /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
-		F72E71FD2CF73BD200F329F3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F7F66D7E2CF9BEE600E15E94 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +69,10 @@
 			children = (
 				F71AD2552CF3B1D900C988F8 /* BBQuotes17App.swift */,
 				F71AD2572CF3B1D900C988F8 /* ContentView.swift */,
+				F7F66D7E2CF9BEE600E15E94 /* ViewModel.swift */,
 				F72E71F52CF7297700F329F3 /* Quote.swift */,
 				F72E71F72CF729F800F329F3 /* Character.swift */,
 				F72E71FB2CF7324D00F329F3 /* FetchService.swift */,
-				F72E71FD2CF73BD200F329F3 /* ViewModel.swift */,
 				F72E71F92CF72AD700F329F3 /* Death.swift */,
 				F71AD2592CF3B1DA00C988F8 /* Assets.xcassets */,
 				F71AD2632CF3B24B00C988F8 /* SampleData */,
@@ -178,7 +178,7 @@
 				F71AD2562CF3B1D900C988F8 /* BBQuotes17App.swift in Sources */,
 				F72E71FC2CF7324D00F329F3 /* FetchService.swift in Sources */,
 				F72E71F82CF729F800F329F3 /* Character.swift in Sources */,
-				F72E71FE2CF73BD200F329F3 /* ViewModel.swift in Sources */,
+				F7F66D7F2CF9BEE600E15E94 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
