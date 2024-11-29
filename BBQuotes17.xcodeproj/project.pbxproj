@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F71AA36F2CFA20A80028C347 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA36E2CFA20A80028C347 /* CharacterView.swift */; };
+		F71AA3712CFA2F1E0028C347 /* sampleepisode.json in Resources */ = {isa = PBXBuildFile; fileRef = F71AA3702CFA2F1E0028C347 /* sampleepisode.json */; };
 		F71AD2562CF3B1D900C988F8 /* BBQuotes17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AD2552CF3B1D900C988F8 /* BBQuotes17App.swift */; };
 		F71AD2582CF3B1D900C988F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AD2572CF3B1D900C988F8 /* ContentView.swift */; };
 		F71AD25A2CF3B1DA00C988F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71AD2592CF3B1DA00C988F8 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		F71AA36E2CFA20A80028C347 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		F71AA3702CFA2F1E0028C347 /* sampleepisode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleepisode.json; sourceTree = "<group>"; };
 		F71AD2522CF3B1D900C988F8 /* BBQuotes17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBQuotes17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71AD2552CF3B1D900C988F8 /* BBQuotes17App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBQuotes17App.swift; sourceTree = "<group>"; };
 		F71AD2572CF3B1D900C988F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		F71AD2632CF3B24B00C988F8 /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
+				F71AA3702CFA2F1E0028C347 /* sampleepisode.json */,
 				F71AD2642CF3B26600C988F8 /* samplecharacter.json */,
 				F71AD2652CF3B26600C988F8 /* sampledeath.json */,
 				F71AD2662CF3B26600C988F8 /* samplequote.json */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71AD2682CF3B26600C988F8 /* sampledeath.json in Resources */,
+				F71AA3712CFA2F1E0028C347 /* sampleepisode.json in Resources */,
 				F71AD25D2CF3B1DA00C988F8 /* Preview Assets.xcassets in Resources */,
 				F71AD2672CF3B26600C988F8 /* samplecharacter.json in Resources */,
 				F71AD2692CF3B26600C988F8 /* samplequote.json in Resources */,
