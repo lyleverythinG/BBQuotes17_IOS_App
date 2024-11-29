@@ -47,7 +47,7 @@ struct CharacterView: View {
                         Text("Occupations:")
                         
                         ForEach(character.occupations, id: \.self) { occupation in
-                           Text("•\(occupation)")
+                            Text("•\(occupation)")
                                 .font(.subheadline)
                         }
                         
@@ -57,7 +57,7 @@ struct CharacterView: View {
                         
                         if character.aliases.count > 0 {
                             ForEach(character.aliases, id: \.self) { alias in
-                               Text("•\(alias)")
+                                Text("•\(alias)")
                                     .font(.subheadline)
                             }
                         } else {
@@ -67,8 +67,34 @@ struct CharacterView: View {
                         
                         Divider()
                         
+                        DisclosureGroup("Status (spoiler alert!)") {
+                            VStack(alignment: .leading)  {
+                                Text(character.status)
+                                    .font(.title2)
+                                
+                                if let death = character.death {
+                                    AsyncImage(url: death.image) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .clipShape(.rect(cornerRadius: 15))
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    
+                                    Text("How: \(death.details)")
+                                        .padding(.bottom, 7)
+                                    
+                                    Text("Last words: \"\(death.lastWords)\"")
+                                }
+                            }
+                            .frame(width:geo.size.width/1.25, alignment: .leading)
+                            .padding(.bottom, 50)
+                        }
+                        
                     }
                     .frame(width:geo.size.width/1.25, alignment: .leading)
+                    .padding()
                 }
                 .scrollIndicators(.hidden)
             }
