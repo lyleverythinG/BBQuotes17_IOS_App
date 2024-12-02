@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuoteView: View {
+struct FetchView: View {
     let vm = ViewModel()
     let show: String
     
@@ -63,19 +63,36 @@ struct QuoteView: View {
                         }
                         Spacer()
                     }
-                    Button {
-                        Task {
-                            await vm.getQuoteData(for: show)
+                    HStack {
+                        Button {
+                            Task {
+                                await vm.getQuoteData(for: show)
+                            }
+                        } label: {
+                            Text("Get Random Quote")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(Color(show.generateButtonAssetName()))
+                                .clipShape(.rect(cornerRadius: 7))
+                                .shadow(color: Color(show.generateShadowAssetName()), radius: 2)
                         }
-                    } label: {
-                        Text("Get Random Quote")
-                            .font(.title)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Color(show.generateButtonAssetName()))
-                            .clipShape(.rect(cornerRadius: 7))
-                            .shadow(color: Color(show.generateShadowAssetName()), radius: 2)
+                        
+                        Button {
+                            Task {
+                                await vm.getQuoteData(for: show)
+                            }
+                        } label: {
+                            Text("Get Random Quote")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(Color(show.generateButtonAssetName()))
+                                .clipShape(.rect(cornerRadius: 7))
+                                .shadow(color: Color(show.generateShadowAssetName()), radius: 2)
+                        }
                     }
+                    .padding(.horizontal, 30)
                     
                     Spacer(minLength:  95)
                 }
@@ -91,6 +108,6 @@ struct QuoteView: View {
 }
 
 #Preview {
-    QuoteView(show: Constants.breakingBadName)
+    FetchView(show: Constants.breakingBadName)
         .preferredColorScheme(.dark)
 }
