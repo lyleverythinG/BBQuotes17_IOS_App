@@ -28,7 +28,7 @@ struct FetchView: View {
                             EmptyView()
                         case .fetching:
                             ProgressView()
-                        case .success:
+                        case .successQuote:
                             Text("\"\(vm.quote.quote)\"")
                                 .minimumScaleFactor(0.5)
                                 .multilineTextAlignment(.center)
@@ -58,10 +58,13 @@ struct FetchView: View {
                             .onTapGesture {
                                 showCharacterInfo.toggle()
                             }
+                        case .successEpisode:
+                            EpisodeView(episode: vm.episode)
                         case .failed(let error):
                             Text(error.localizedDescription)
                         }
-                        Spacer()
+                        
+                        Spacer(minLength:  20)
                     }
                     HStack {
                         Button {
@@ -70,7 +73,7 @@ struct FetchView: View {
                             }
                         } label: {
                             Text("Get Random Quote")
-                                .font(.title)
+                                .font(.title3)
                                 .foregroundStyle(.white)
                                 .padding()
                                 .background(Color(show.generateButtonAssetName()))
@@ -78,13 +81,15 @@ struct FetchView: View {
                                 .shadow(color: Color(show.generateShadowAssetName()), radius: 2)
                         }
                         
+                        Spacer(minLength: 20)
+                        
                         Button {
                             Task {
-                                await vm.getQuoteData(for: show)
+                                await vm.getEpisode(for: show)
                             }
                         } label: {
-                            Text("Get Random Quote")
-                                .font(.title)
+                            Text("Get Random Episode")
+                                .font(.title3)
                                 .foregroundStyle(.white)
                                 .padding()
                                 .background(Color(show.generateButtonAssetName()))

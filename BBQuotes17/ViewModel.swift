@@ -12,7 +12,8 @@ class ViewModel {
     enum FetchStatus {
         case notStarted
         case fetching
-        case success
+        case successQuote
+        case successEpisode
         case failed(error:Error)
     }
     
@@ -47,7 +48,7 @@ class ViewModel {
             
             character.death = try await fetcher.fetchDeath(for: character.name)
             
-            status = .success
+            status = .successQuote
         }catch {
             status = .failed(error: error)
         }
@@ -60,7 +61,7 @@ class ViewModel {
             if let unwrappedEpisode = try await fetcher.fetchEpisode(from: show) {
                 episode = unwrappedEpisode
                 
-                status = .success
+                status = .successEpisode
             }
         } catch {
             status = .failed(error: error)
