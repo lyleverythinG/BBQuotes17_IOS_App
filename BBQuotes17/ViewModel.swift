@@ -40,17 +40,21 @@ class ViewModel {
     }
     
     func getQuoteData(for show: String) async {
-        status = .fetching
+        DispatchQueue.main.async {
+            self.status = .fetching
+        }
         do {
             quote = try await fetcher.fetchQuote(from: show)
-            
             character = try await fetcher.fetchCharacter(quote.character)
-            
             character.death = try await fetcher.fetchDeath(for: character.name)
             
-            status = .successQuote
-        }catch {
-            status = .failed(error: error)
+            DispatchQueue.main.async {
+                self.status = .successQuote
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.status = .failed(error: error)
+            }
         }
     }
     
