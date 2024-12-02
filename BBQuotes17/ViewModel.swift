@@ -30,12 +30,12 @@ class ViewModel {
         
         let quoteData = try! Data(contentsOf: Bundle.main.url(forResource: "samplequote", withExtension: "json")!)
         quote = try! decoder.decode(Quote.self, from: quoteData)
+    
+        let characterData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecharacter", withExtension: "json")!)
+        character = try! decoder.decode(Character.self, from: characterData)
         
         let episodeData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleepisode", withExtension: "json")!)
-        episode = try! decoder.decode(Episode.self, from: quoteData)
-        
-        let characterData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecharacter", withExtension: "json")!)
-        character = try! decoder.decode(Character.self, from: episodeData)
+        episode = try! decoder.decode(Episode.self, from: episodeData)
     }
     
     func getQuoteData(for show: String) async {
