@@ -75,6 +75,18 @@ struct FetchService {
         return nil
     }
     
+    
+    /**
+     Fetches a random episode from the given show.
+
+     - Note: The API only supports querying episodes using the `production` field, which specifies the show name
+             (e.g., "Breaking Bad" or "Better Call Saul"). Other fields, such as episode ID or title, are not supported.
+             As a result, all episodes are fetched first, and one is randomly selected. This may change in the future.
+
+     - Parameter show: The name of the show to fetch episodes for (e.g., "Breaking Bad" or "Better Call Saul").
+     - Returns: A random `Episode` object from the specified show, or `nil` if no episodes are found.
+     - Throws: `FetchError` if there is an issue with the network request or decoding the data.
+     */
     func fetchEpisode(from show: String) async throws -> Episode? {
         let episodeURL = baseURL.appending(path:"episodes")
         let fetchURL = episodeURL.appending(queryItems: [URLQueryItem(name: "production",value: show)])

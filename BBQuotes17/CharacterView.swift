@@ -14,11 +14,12 @@ struct CharacterView: View {
         GeometryReader { geo in
             ScrollViewReader { proxy in
                 ZStack(alignment: .top) {
-                    Image(show.removeWhiteSpaceAndConvertToPascal())
-                        .resizable()
+                    // Top background image
+                    BackgroundImgView(imageName:show.removeWhiteSpaceAndConvertToPascal())
                         .scaledToFit()
                     
                     ScrollView {
+                        // Character Image Carousel View
                         TabView {
                             ForEach(character.images,id: \.self) { characterImageURL in
                                 AsyncImage(url: characterImageURL) { image in
@@ -35,75 +36,13 @@ struct CharacterView: View {
                         .clipShape(.rect(cornerRadius: 25))
                         .padding(.top,60)
                         VStack(alignment: .leading) {
-                            Text(character.name)
-                                .font(.largeTitle)
-                            
-                            Text("Portrayed By: \(character.portrayedBy)")
-                                .font(.subheadline)
-                            
+                            CharacterDetailsSection(character: character)
                             Divider()
-                            
-                            Text("\(character.name) Character Info")
-                                .font(.title2)
-                            
-                            Text("Born: \(character.birthday)")
-                            
+                            OccupationsSection(character: character)
                             Divider()
-                            
-                            Text("Occupations:")
-                            
-                            ForEach(character.occupations, id: \.self) { occupation in
-                                Text("•\(occupation)")
-                                    .font(.subheadline)
-                            }
-                            
+                            NicknamesSection(character: character)
                             Divider()
-                            
-                            Text("Nicknames:")
-                            
-                            if character.aliases.count > 0 {
-                                ForEach(character.aliases, id: \.self) { alias in
-                                    Text("•\(alias)")
-                                        .font(.subheadline)
-                                }
-                            } else {
-                                Text("None")
-                                    .font(.subheadline)
-                            }
-                            
-                            Divider()
-                            
-                            DisclosureGroup("Status (spoiler alert!)") {
-                                VStack(alignment: .leading)  {
-                                    Text(character.status)
-                                        .font(.title2)
-                                    
-                                    if let death = character.death {
-                                        AsyncImage(url: death.image) { image in
-                                            image
-                                                .resizable()
-                                                .scaledToFit()
-                                                .clipShape(.rect(cornerRadius: 15))
-                                                .onAppear {
-                                                    withAnimation{
-                                                        proxy.scrollTo(1, anchor:.bottom)
-                                                    }
-                                                }
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        
-                                        Text("How: \(death.details)")
-                                            .padding(.bottom, 7)
-                                        
-                                        Text("Last words: \"\(death.lastWords)\"")
-                                    }
-                                }
-                                .frame(width:geo.size.width/1.25, alignment: .leading)
-                                .padding(.bottom, 50)
-                            }
-                            .id(1)
-                            
+                            StatusSection(character: character, proxy: proxy, geo: geo)
                         }
                         .frame(width:geo.size.width/1.25, alignment: .leading)
                         .padding()
@@ -111,6 +50,83 @@ struct CharacterView: View {
                     .scrollIndicators(.hidden)
                 }
             }
+        }
+    }
+    
+    private struct CharacterDetailsSection: View {
+        let character: Character
+        
+        var body: some View {
+            BBText.largeTitle(character.name)
+            BBText.subHeadline("Portrayed By: \(character.portrayedBy)")
+            Divider()
+            BBText.title2("\(character.name) Character Info")
+            BBText.defaultText("Born: \(character.birthday)")
+            
+        }
+    }
+    
+    private struct OccupationsSection: View {
+        let character: Character
+        
+        var body: some View {
+            BBText.defaultText("Occupations:")
+            
+            ForEach(character.occupations, id: \.self) { occupation in
+                BBText.subHeadline("•\(occupation)")
+            }
+        }
+    }
+    
+    private struct NicknamesSection: View {
+        let character: Character
+        
+        var body: some View {
+            BBText.defaultText("Nicknames:")
+            
+            if character.aliases.count > 0 {
+                ForEach(character.aliases, id: \.self) { alias in
+                    BBText.subHeadline("•\(alias)")
+                }
+            } else {
+                BBText.subHeadline("None")
+            }
+        }
+    }
+    
+    private struct StatusSection: View {
+        let character: Character
+        let proxy: ScrollViewProxy
+        let geo: GeometryProxy
+        
+        var body: some View {
+            DisclosureGroup("Status (spoiler alert!)") {
+                VStack(alignment: .leading)  {
+                    BBText.title2(character.status)
+                    
+                    if let death = character.death {
+                        AsyncImage(url: death.image) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(.rect(cornerRadius: 15))
+                                .onAppear {
+                                    withAnimation{
+                                        proxy.scrollTo(1, anchor:.bottom)
+                                    }
+                                }
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        BBText.defaultText("How: \(death.details)")
+                            .padding(.bottom, 7)
+                        BBText.defaultText("Last words: \"\(death.lastWords)\"")
+                    }
+                }
+                .frame(width:geo.size.width/1.25, alignment: .leading)
+                .padding(.bottom, 50)
+            }
+            .id(1)
         }
     }
 }
