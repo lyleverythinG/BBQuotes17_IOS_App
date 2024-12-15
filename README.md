@@ -3,7 +3,7 @@ _This simple app is made with Swift and is the third app I created in this langu
 # NOTE
 - I followed a Udemy course, which is this one: https://www.udemy.com/course/ios-15-app-development-with-swiftui-3-and-swift-5/..
 - After I finished the first app from the course, I made changes to the project for practice and learning purposes.
-- The code structure in this project is not perfect, as I just started learning ios development. I've created this repository to track my progress as I work on more projects in the future.
+- The code structure in this project is not perfect, as I am new to swift and native ios development. I've created this repository to track my progress as I work on more projects in the future.
 # My Changes
 - Added reusable/sub views.
 - Added `BBText` for reusability of text.
