@@ -12,8 +12,8 @@ _This simple app is made with Swift and is the third app I created in this langu
 - Added helper method in content view.
 - Updated `Constants` enum structure.
 - Created a sub view in `FetchView` for the two buttons. (to avoid repetitions, subview name: `FetchButton`).
-- Extract a sub view for the Character Img Card Part for readability. (subview name: `CharacterCardImgView`).
+- Extracted a sub view for the Character Img Card Part for readability. (subview name: `CharacterCardImgView`).
 - Transferred the `EpisodeView` to `FetchView` file. (No need to separate since only used in that file).
-- Refactor `CharacterView`. ( Extract sub views)
+- Refactored `CharacterView`. ( Extract sub views)
 # SETUP
 - Add your own API key inside the `ExchangeRateService` file. Create your key here: Link: https://freecurrencyapi.com/
